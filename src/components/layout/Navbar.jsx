@@ -33,4 +33,42 @@ const Navbar = () => {
         { name:'Blog',path:'/blog' },
         { name:'Careers',path:'/careers' },
     ];
-}
+
+    return (
+        <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
+            <div className="container">
+                <div className="nav-wrapper">
+                    <Link to="/" className="logo">USD</Link>
+
+                    <button 
+                        className={`mobile-menu-toggle ${isMenuOpen ? 'active' : ''}`}
+                        onClick={toggleMenu}
+                        aria-label="Toggle Menu"    
+                    >
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+
+                    <ul className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
+                        {navItems.map((item) => (
+                            <li key={item.path}>
+                                <Link
+                                    to={item.path}
+                                    className={location.pathname === item.path ? 'active': ''}
+                                >
+                                    {item.name}
+                                </Link>
+                            </li>
+                        ))}
+                        <li>
+                            <Button to="/contact" variant="nav">Contact Us</Button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    );
+};
+
+export default Navbar;
