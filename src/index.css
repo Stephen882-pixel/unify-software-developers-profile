@@ -19,6 +19,139 @@
   --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.15);
   --transition: all 0.3s ease;
 }
+.card {
+  background-color: #ffffff !important;
+  display: block !important;
+}
+
+.card > * {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Fix Feature Cards (Why Choose Us) */
+.feature-card {
+  background-color: #ffffff !important;
+  text-align: center;
+  padding: 40px 30px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+}
+
+.feature-icon {
+  font-size: 3rem !important;
+  margin-bottom: 20px !important;
+  display: block !important;
+  line-height: 1 !important;
+}
+
+.feature-card h3 {
+  color: #1b1b1b !important;
+  margin-bottom: 15px !important;
+  font-size: 1.75rem !important;
+  display: block !important;
+}
+
+.feature-card p {
+  color: #666666 !important;
+  display: block !important;
+  line-height: 1.8 !important;
+}
+
+/* Fix Portfolio Cards (Featured Projects) */
+.portfolio-card {
+  background-color: #ffffff !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.portfolio-image {
+  width: 100% !important;
+  height: 250px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-shrink: 0 !important;
+}
+
+.portfolio-content {
+  padding: 30px !important;
+  background-color: #ffffff !important;
+  display: block !important;
+}
+
+.portfolio-content h3 {
+  color: #1b1b1b !important;
+  margin-bottom: 15px !important;
+  font-size: 1.75rem !important;
+  display: block !important;
+}
+
+.portfolio-content p {
+  color: #666666 !important;
+  margin-bottom: 20px !important;
+  display: block !important;
+  line-height: 1.8 !important;
+}
+
+.portfolio-content .link-arrow {
+  color: #ff6c37 !important;
+  display: inline-flex !important;
+}
+
+/* Fix Service Cards */
+.service-card {
+  background-color: #f5f5f5 !important;
+  padding: 40px 30px !important;
+  display: block !important;
+}
+
+.service-icon {
+  font-size: 3rem !important;
+  margin-bottom: 20px !important;
+  display: block !important;
+}
+
+.service-card h3 {
+  color: #1b1b1b !important;
+  margin-bottom: 15px !important;
+  display: block !important;
+}
+
+.service-card p {
+  color: #666666 !important;
+  margin-bottom: 20px !important;
+  display: block !important;
+}
+
+/* Fix Testimonial Cards */
+.testimonial-card {
+  background-color: #f5f5f5 !important;
+  padding: 40px 30px !important;
+  display: block !important;
+}
+
+.testimonial-text {
+  color: #666666 !important;
+  margin-bottom: 25px !important;
+  display: block !important;
+  font-style: italic !important;
+}
+
+.testimonial-author strong {
+  color: #1b1b1b !important;
+  display: block !important;
+  margin-bottom: 5px !important;
+}
+
+.testimonial-author span {
+  color: #666666 !important;
+  display: block !important;
+}
 
 html {
   scroll-behavior: smooth;

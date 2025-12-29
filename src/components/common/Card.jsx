@@ -1,17 +1,22 @@
-import React, { Children } from "react";
+import React from 'react';
 import './Card.css';
 
-const Card = ({
-    Children,
-    className = '',
-    hover = true,
-    ...props
+const Card = ({ 
+  children, 
+  className = '', 
+  hover = true,
+  style = {},  // Add this to accept inline styles
+  ...props 
 }) => {
-    return(
-        <div className={`card ${hover ? 'card-hover' : ''} ${className}`} {...props}>
-            {Children}
-        </div>
-    );
+  return (
+    <div 
+      className={`card ${hover ? 'card-hover' : ''} ${className}`}
+      style={style}  // Pass through the style prop
+      {...props}
+    >
+      {children}
+    </div>
+  );
 };
 
 export default Card;
