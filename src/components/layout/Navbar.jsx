@@ -16,4 +16,21 @@ const Navbar = () => {
         window.addEventListener('scroll',handleScroll);
         return () => window.removeEventListener('scroll',handleScroll);
     },[]);
+
+    useEffect(() => {
+        setIsMenuOpen(false);
+    },[location]);
+
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
+    };
+
+    const navItems = [
+        { name: 'Home',path:'/' },
+        { name: 'About',path:'/about' },
+        { name:'Services',path:'/services' },
+        { name:'Portfolio',path:'/portfolio' },
+        { name:'Blog',path:'/blog' },
+        { name:'Careers',path:'/careers' },
+    ];
 }
