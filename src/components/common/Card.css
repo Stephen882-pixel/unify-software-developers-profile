@@ -1,0 +1,13 @@
+/* src/components/common/Card.css */
+.card {
+  background-color: var(--white);
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.card-hover:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-lg);
+}
