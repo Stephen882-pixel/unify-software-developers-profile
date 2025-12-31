@@ -16,7 +16,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 0;
+  padding: 12px 0;  /* Changed from 20px */
+}
+
+.logo {
+  font-size: 1.5rem;  /* Changed from 1.8rem */
+  font-weight: 700;
+  color: var(--primary-color);
 }
 
 .logo {
