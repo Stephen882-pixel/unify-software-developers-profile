@@ -1,0 +1,368 @@
+/* ===================================
+   Process Section
+   =================================== */
+.process-selection {
+  background-color: var(--white);
+  padding: 100px 0;
+  margin: 0;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.process-selection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+}
+
+.process-selection::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+}
+
+.process-selection .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.process-selection .section-title {
+  color: var(--text-dark);
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 80px;
+  position: relative;
+}
+
+.process-selection .section-title::after {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background-color: var(--primary-color);
+  border-radius: 2px;
+}
+
+/* Process Grid */
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  position: relative;
+}
+
+/* Process Step Card */
+.process-step {
+  background-color: var(--white);
+  border-radius: 16px;
+  padding: 40px 30px;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 108, 55, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: processFadeIn 0.6s ease forwards;
+}
+
+.process-step:nth-child(1) { animation-delay: 0.1s; }
+.process-step:nth-child(2) { animation-delay: 0.2s; }
+.process-step:nth-child(3) { animation-delay: 0.3s; }
+.process-step:nth-child(4) { animation-delay: 0.4s; }
+.process-step:nth-child(5) { animation-delay: 0.5s; }
+.process-step:nth-child(6) { animation-delay: 0.6s; }
+
+.process-step::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, var(--primary-color), transparent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.process-step:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-lg);
+}
+
+.process-step:hover::before {
+  transform: scaleX(1);
+}
+
+/* Step Number */
+.step-number {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: rgba(255, 108, 55, 0.1);
+  line-height: 1;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+  transition: var(--transition);
+  display: block;
+}
+
+.process-step:hover .step-number {
+  color: rgba(255, 108, 55, 0.15);
+  transform: scale(1.1);
+}
+
+/* Step Title */
+.process-step h3 {
+  color: var(--text-dark);
+  font-size: 1.75rem;
+  margin-bottom: 15px;
+  position: relative;
+  padding-bottom: 10px;
+  display: block;
+}
+
+.process-step h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background-color: var(--primary-color);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.process-step:hover h3::after {
+  width: 60px;
+}
+
+/* Step Description */
+.process-step p {
+  color: var(--text-light);
+  line-height: 1.8;
+  margin-bottom: 0;
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+/* Step Indicator */
+.process-step::after {
+  content: '';
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 30px;
+  height: 30px;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(0);
+  transition: var(--transition);
+}
+
+.process-step:hover::after {
+  opacity: 0.2;
+  transform: scale(1);
+}
+
+/* Animation */
+@keyframes processFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===================================
+   Timeline Connection (Optional)
+   =================================== */
+@media (min-width: 1024px) {
+  .process-grid {
+    position: relative;
+  }
+  
+  .process-grid::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 2px;
+    background: linear-gradient(90deg, 
+      transparent 0%, 
+      rgba(255, 108, 55, 0.2) 25%, 
+      rgba(255, 108, 55, 0.4) 50%, 
+      rgba(255, 108, 55, 0.2) 75%, 
+      transparent 100%
+    );
+    z-index: 0;
+  }
+  
+  .process-step {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+/* ===================================
+   Responsive Design
+   =================================== */
+@media (max-width: 1024px) {
+  .process-selection {
+    padding: 80px 0;
+  }
+  
+  .process-selection .section-title {
+    font-size: 2.25rem;
+    margin-bottom: 60px;
+  }
+  
+  .process-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+  
+  .process-step {
+    padding: 35px 25px;
+  }
+  
+  .step-number {
+    font-size: 3rem;
+  }
+  
+  .process-step h3 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .process-selection {
+    padding: 60px 0;
+  }
+  
+  .process-selection .section-title {
+    font-size: 2rem;
+    margin-bottom: 50px;
+  }
+  
+  .process-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .process-step {
+    padding: 30px 25px;
+  }
+  
+  .step-number {
+    font-size: 2.75rem;
+  }
+  
+  .process-step h3 {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .process-selection .container {
+    padding: 0 15px;
+  }
+  
+  .process-selection .section-title {
+    font-size: 1.75rem;
+    margin-bottom: 40px;
+  }
+  
+  .process-step {
+    padding: 25px 20px;
+  }
+  
+  .step-number {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+  }
+  
+  .process-step h3 {
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+  }
+  
+  .process-step p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+}
+
+/* Extra Small Devices */
+@media (max-width: 360px) {
+  .process-selection .section-title {
+    font-size: 1.5rem;
+  }
+  
+  .step-number {
+    font-size: 2rem;
+  }
+  
+  .process-step h3 {
+    font-size: 1.2rem;
+  }
+  
+  .process-step p {
+    font-size: 0.9rem;
+  }
+}
+
+/* Dark Mode Support (Optional) */
+@media (prefers-color-scheme: dark) {
+  .process-selection {
+    background-color: #1a1a1a;
+  }
+  
+  .process-step {
+    background-color: #2d2d2d;
+    border-color: rgba(255, 108, 55, 0.2);
+  }
+  
+  .process-step h3 {
+    color: #ffffff;
+  }
+  
+  .process-step p {
+    color: #b0b0b0;
+  }
+  
+  .step-number {
+    color: rgba(255, 108, 55, 0.15);
+  }
+  
+  .process-step:hover .step-number {
+    color: rgba(255, 108, 55, 0.2);
+  }
+}
