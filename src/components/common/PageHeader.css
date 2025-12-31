@@ -1,0 +1,35 @@
+.page-header {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-hover) 100%);
+  color: var(--white);
+  text-align: center;
+  padding: 80px 0 60px;
+  width: 100%;
+  margin: 0;
+}
+
+.page-header h1 {
+  color: var(--white);
+  margin-bottom: 15px;
+  font-size: 3rem;
+}
+
+.page-header p {
+  color: var(--white);
+  font-size: 1.2rem;
+  opacity: 0.9;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .page-header {
+    padding: 60px 0 40px;
+  }
+
+  .page-header h1 {
+    font-size: 2rem;
+  }
+
+  .page-header p {
+    font-size: 1rem;
+  }
+}
