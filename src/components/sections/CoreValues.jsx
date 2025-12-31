@@ -43,3 +43,5 @@ const CoreValues = () => {
     </section>
   );
 };
+
+export default CoreValues;
