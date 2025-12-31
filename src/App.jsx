@@ -4,6 +4,7 @@ import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import Home from './pages/Home'
 import About from './pages/About';
+import Services from './pages/Services';
 
 import './App.css'
 
@@ -17,7 +18,7 @@ function App() {
             <Route path="/" element={<Home />} />
             {/* Uncomment as we create pages */}
             <Route path="/about" element={<About />} />
-            {/* <Route path="/services" element={<Services />} /> */}
+            <Route path="/services" element={<Services />} />
             {/* <Route path="/portfolio" element={<Portfolio />} /> */}
             {/* <Route path="/blog" element={<Blog />} /> */}
             {/* <Route path="/careers" element={<Careers />} /> */}
