@@ -36,6 +36,16 @@ const ContactForm = () => {
         setFormStatus('success');
         alert('Thank you for your message. We will get back to you soon.');
 
-        
+        setFormData({
+            firstName:'',
+            lastName:'',
+            email:'',
+            company:'',
+            service:'',
+            budget:'',
+            message:''
+        });
+
+        setTimeout(() => setFormStatus(''),3000);
     };
 };
