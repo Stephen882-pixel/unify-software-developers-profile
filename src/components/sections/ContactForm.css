@@ -1,0 +1,505 @@
+/* ===================================
+   Contact Form Component
+   =================================== */
+.contact-form-wrapper {
+  background-color: var(--white);
+  border-radius: 16px;
+  padding: 60px 50px;
+  box-shadow: var(--shadow-lg);
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-form-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 5px;
+  height: 100%;
+  background: linear-gradient(to bottom, var(--primary-color), var(--primary-hover));
+}
+
+/* Contact Form */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* Form Row for Side-by-Side Inputs */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+/* Form Group */
+.form-group {
+  position: relative;
+}
+
+.form-group label {
+  display: block;
+  color: var(--text-dark);
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  transition: color 0.3s ease;
+  position: relative;
+  padding-left: 5px;
+}
+
+.form-group label::after {
+  content: '*';
+  color: var(--primary-color);
+  margin-left: 4px;
+  position: absolute;
+  top: 0;
+  right: -12px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.form-group label[for*="*"]::after,
+.form-group input:required + label::after,
+.form-group textarea:required + label::after {
+  opacity: 1;
+}
+
+/* Form Inputs */
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  padding: 16px 20px;
+  font-size: 1.1rem;
+  font-family: 'Poppins', sans-serif;
+  color: var(--text-dark);
+  background-color: rgba(255, 108, 55, 0.03);
+  border: 2px solid rgba(255, 108, 55, 0.1);
+  border-radius: 10px;
+  transition: var(--transition);
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 150px;
+  line-height: 1.6;
+}
+
+/* Custom Select Arrow */
+.contact-form select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23ff6c37' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 20px center;
+  background-size: 20px;
+  padding-right: 50px;
+}
+
+/* Focus States */
+.contact-form input[type="text"]:focus,
+.contact-form input[type="email"]:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+  border-color: var(--primary-color);
+  background-color: rgba(255, 108, 55, 0.05);
+  box-shadow: 0 0 0 3px rgba(255, 108, 55, 0.1);
+}
+
+.contact-form input[type="text"]:hover,
+.contact-form input[type="email"]:hover,
+.contact-form select:hover,
+.contact-form textarea:hover {
+  border-color: rgba(255, 108, 55, 0.3);
+}
+
+/* Form Group Focus Effect */
+.form-group:focus-within label {
+  color: var(--primary-color);
+}
+
+/* Input Placeholder */
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: rgba(27, 27, 27, 0.4);
+  font-weight: 400;
+}
+
+/* Button Styling */
+.contact-form .button {
+  background-color: var(--primary-color);
+  color: var(--white);
+  border: none;
+  padding: 18px 45px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: var(--transition);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+  align-self: flex-start;
+  margin-top: 10px;
+  width: auto;
+  min-width: 200px;
+}
+
+.contact-form .button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.contact-form .button:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(255, 108, 55, 0.3);
+}
+
+.contact-form .button:hover::before {
+  left: 100%;
+}
+
+.contact-form .button:active {
+  transform: translateY(-1px);
+}
+
+.contact-form .button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Success Message */
+.form-success {
+  color: #10b981;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 15px 20px;
+  background-color: rgba(16, 185, 129, 0.1);
+  border-radius: 10px;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  margin-top: 20px;
+  text-align: center;
+  animation: fadeIn 0.5s ease;
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Error States */
+.contact-form input:invalid:not(:focus):not(:placeholder-shown),
+.contact-form textarea:invalid:not(:focus):not(:placeholder-shown) {
+  border-color: #ef4444;
+  background-color: rgba(239, 68, 68, 0.05);
+}
+
+.contact-form input:invalid:not(:focus):not(:placeholder-shown) + label::after,
+.contact-form textarea:invalid:not(:focus):not(:placeholder-shown) + label::after {
+  color: #ef4444;
+}
+
+/* Loading State */
+.form-loading {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: var(--white);
+  animation: spin 1s ease-in-out infinite;
+  margin-right: 10px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Form Validation Feedback */
+.form-feedback {
+  color: #ef4444;
+  font-size: 0.9rem;
+  margin-top: 5px;
+  display: block;
+  opacity: 0;
+  transform: translateY(-5px);
+  transition: var(--transition);
+}
+
+.form-group:has(input:invalid:not(:focus):not(:placeholder-shown)) .form-feedback,
+.form-group:has(textarea:invalid:not(:focus):not(:placeholder-shown)) .form-feedback {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===================================
+   Responsive Design
+   =================================== */
+@media (max-width: 1200px) {
+  .contact-form-wrapper {
+    padding: 50px 40px;
+  }
+  
+  .contact-form {
+    gap: 25px;
+  }
+  
+  .form-row {
+    gap: 20px;
+  }
+  
+  .contact-form input[type="text"],
+  .contact-form input[type="email"],
+  .contact-form select,
+  .contact-form textarea {
+    padding: 15px 18px;
+    font-size: 1rem;
+  }
+  
+  .contact-form .button {
+    padding: 16px 40px;
+    font-size: 1.1rem;
+    min-width: 180px;
+  }
+}
+
+@media (max-width: 992px) {
+  .contact-form-wrapper {
+    padding: 40px 35px;
+  }
+  
+  .contact-form {
+    gap: 22px;
+  }
+  
+  .form-group label {
+    font-size: 1rem;
+    margin-bottom: 8px;
+  }
+  
+  .contact-form input[type="text"],
+  .contact-form input[type="email"],
+  .contact-form select,
+  .contact-form textarea {
+    padding: 14px 16px;
+    font-size: 0.95rem;
+  }
+  
+  .contact-form textarea {
+    min-height: 140px;
+  }
+  
+  .contact-form select {
+    background-position: right 16px center;
+    padding-right: 45px;
+  }
+  
+  .contact-form .button {
+    padding: 15px 35px;
+    font-size: 1rem;
+    min-width: 170px;
+  }
+  
+  .form-success {
+    font-size: 1rem;
+    padding: 12px 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-form-wrapper {
+    padding: 35px 30px;
+  }
+  
+  .contact-form {
+    gap: 20px;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .form-group label {
+    font-size: 0.95rem;
+  }
+  
+  .contact-form input[type="text"],
+  .contact-form input[type="email"],
+  .contact-form select,
+  .contact-form textarea {
+    padding: 13px 15px;
+    font-size: 0.9rem;
+  }
+  
+  .contact-form textarea {
+    min-height: 130px;
+  }
+  
+  .contact-form .button {
+    padding: 14px 30px;
+    font-size: 0.95rem;
+    min-width: 160px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .form-success {
+    font-size: 0.95rem;
+    padding: 10px 15px;
+  }
+}
+
+@media (max-width: 576px) {
+  .contact-form-wrapper {
+    padding: 30px 25px;
+    border-radius: 12px;
+  }
+  
+  .contact-form {
+    gap: 18px;
+  }
+  
+  .form-group label {
+    font-size: 0.9rem;
+    margin-bottom: 6px;
+  }
+  
+  .contact-form input[type="text"],
+  .contact-form input[type="email"],
+  .contact-form select,
+  .contact-form textarea {
+    padding: 12px 14px;
+    font-size: 0.85rem;
+    border-width: 1.5px;
+  }
+  
+  .contact-form textarea {
+    min-height: 120px;
+  }
+  
+  .contact-form select {
+    background-position: right 14px center;
+    background-size: 16px;
+    padding-right: 40px;
+  }
+  
+  .contact-form .button {
+    padding: 13px 25px;
+    font-size: 0.9rem;
+    min-width: auto;
+  }
+  
+  .form-success {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+  }
+}
+
+@media (max-width: 400px) {
+  .contact-form-wrapper {
+    padding: 25px 20px;
+  }
+  
+  .contact-form {
+    gap: 15px;
+  }
+  
+  .form-group label {
+    font-size: 0.85rem;
+  }
+  
+  .contact-form input[type="text"],
+  .contact-form input[type="email"],
+  .contact-form select,
+  .contact-form textarea {
+    padding: 11px 13px;
+    font-size: 0.8rem;
+  }
+  
+  .contact-form textarea {
+    min-height: 110px;
+  }
+  
+  .contact-form .button {
+    padding: 12px 22px;
+    font-size: 0.85rem;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .contact-form-wrapper {
+    background-color: #2d2d2d;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  }
+  
+  .contact-form-wrapper::before {
+    background: linear-gradient(to bottom, var(--primary-color), #ff8c66);
+  }
+  
+  .form-group label {
+    color: #ffffff;
+  }
+  
+  .contact-form input[type="text"],
+  .contact-form input[type="email"],
+  .contact-form select,
+  .contact-form textarea {
+    color: #ffffff;
+    background-color: rgba(255, 108, 55, 0.08);
+    border-color: rgba(255, 108, 55, 0.3);
+  }
+  
+  .contact-form input::placeholder,
+  .contact-form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+  }
+  
+  .contact-form input[type="text"]:focus,
+  .contact-form input[type="email"]:focus,
+  .contact-form select:focus,
+  .contact-form textarea:focus {
+    background-color: rgba(255, 108, 55, 0.12);
+    box-shadow: 0 0 0 3px rgba(255, 108, 55, 0.2);
+  }
+  
+  .contact-form input[type="text"]:invalid:not(:focus):not(:placeholder-shown),
+  .contact-form textarea:invalid:not(:focus):not(:placeholder-shown) {
+    background-color: rgba(239, 68, 68, 0.1);
+  }
+  
+  .form-success {
+    background-color: rgba(16, 185, 129, 0.15);
+    border-color: rgba(16, 185, 129, 0.3);
+  }
+  
+  .contact-form select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23ff8c66' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  }
+}
