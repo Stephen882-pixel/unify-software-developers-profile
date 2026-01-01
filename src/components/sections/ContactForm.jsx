@@ -31,5 +31,11 @@ const ContactForm = () => {
             alert('Please fill in all required fields');
             return;
         }
+
+        console.log('Form Submitted:',formData);
+        setFormStatus('success');
+        alert('Thank you for your message. We will get back to you soon.');
+
+        
     };
 };
