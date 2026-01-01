@@ -1,9 +1,8 @@
 import React from "react";
 import './ContactInfo.css';
 
-
 const ContactInfo = () => {
-    const contactDetails = [
+  const contactDetails = [
     {
       icon: '📧',
       title: 'Email',
@@ -39,36 +38,35 @@ const ContactInfo = () => {
 
   return (
     <div className="contact-info">
-        <h2>Get in Touch</h2>
-        <p>Have a project in mind? We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
-        <div className="contact-details">
-            {contactDetails.map((detail,index) => (
-                <div key={index} className="contact-item">
-                    <div className="contact-icon">{detail.icon}</div>
-                    <div>
-                        <h3>{detail.title}</h3>
-                        {detail.link ?  (
-                            <a href="{detail.link}">{detail.content}</a>
-                        ): (
-                            <p style={{whiteSpace: 'pre-line'}}>{detail.content}</p>
-                        )}
-                    </div>
-                </div>
-            ))}
-        </div>
-        <div className="social-section">
-            <h3>Follow Us</h3>
-            <div className="social-links-large">
-                {socialLinks.map((social,index) => (
-                    <a key={index} href="{social.url}" aria-label="{social.name}">
-                        {social.name}
-                    </a>
-                ))}
+      <h2>Get in Touch</h2>
+      <p>Have a project in mind? We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
+      <div className="contact-details">
+        {contactDetails.map((detail, index) => (
+          <div key={index} className="contact-item">
+            <div className="contact-icon">{detail.icon}</div>
+            <div>
+              <h3>{detail.title}</h3>
+              {detail.link ? (
+                <a href={detail.link}>{detail.content}</a>
+              ) : (
+                <p style={{ whiteSpace: 'pre-line' }}>{detail.content}</p>
+              )}
             </div>
+          </div>
+        ))}
+      </div>
+      <div className="social-section">
+        <h3>Follow Us</h3>
+        <div className="social-links-large">
+          {socialLinks.map((social, index) => (
+            <a key={index} href={social.url} aria-label={social.name}>
+              {social.name}
+            </a>
+          ))}
         </div>
+      </div>
     </div>
   );
 };
-
 
 export default ContactInfo;
